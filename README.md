@@ -2,14 +2,12 @@
 
 _Requirements: [React Native](https://facebook.github.io/react-native/docs/getting-started.html#native)_
 
-  - `$ git clone git@github.com:brunolemos/react-native-web-monorepo.git`
-  - `$ cd react-native-web-monorepo`
   - `$ yarn`
   - `$ yarn workspace web start`
   - `$ yarn workspace mobile start`
   - Run the project
     - [iOS] Via Xcode
-      - `open packages/mobile/ios/myprojectname.xcodeproj` (open the project on Xcode)
+      - `open packages/mobile/ios/purpose.xcodeproj` (open the project on Xcode)
       - Press the Run button
     - [Android] Via Android Studio
       - `studio ./packages/mobile/android/` (open the project on Android Studio)

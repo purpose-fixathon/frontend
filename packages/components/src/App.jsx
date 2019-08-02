@@ -10,7 +10,7 @@ const instructions = Platform.select({
 
 export interface AppProps {}
 
-export function App(_props: AppProps) {
+export function App(AppProps) {
   return (
     <View style={styles.container}>
       <Text style={styles.welcome}>
