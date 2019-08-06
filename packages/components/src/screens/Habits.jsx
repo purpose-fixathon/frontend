@@ -1,27 +1,49 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image, FlatList } from 'react-native'
 
 function Habits () {
+  const mockData = [
+    { id: 0, title: 'Tree planting', emoji: '🌳' },
+    { id: 1, title: 'Tree planting', emoji: '🌳' },
+    { id: 2, title: 'Tree planting', emoji: '🌳' }
+  ]
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.welcome}>
-        Habits
-      </Text>
+    <View>
+      <View style={styles.center}>
+        <Text></Text>
+        <Text style={styles.title}>Habits</Text>
+        <Image source={require('../../assets/logo.png')} style={{ height: '32px', width: '32px' }} />
+      </View>
+
+      <FlatList
+        data={mockData}
+        renderItem={({ item }) => (
+          <View style={styles.listItem}>
+            <Text>{item.emoji} {item.title}</Text>
+          </View>
+        )}
+      />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  center: {
     flex: 1,
-    justifyContent: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    padding: 22
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  title: {
+    fontSize: '18px',
+    fontWeight: 'bold'
+  },
+  listItem: {
+    padding: 16,
+    borderColor: '#000000',
+    borderBottomWidth: 1
   }
 })
 
