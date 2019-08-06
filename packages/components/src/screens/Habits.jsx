@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, FlatList, Button, TouchableOpacity, Icon, ScrollView } from 'react-native'
+import Habit from './Habit'
 
 function Habits () {
 
@@ -8,8 +9,8 @@ function Habits () {
 
   const mockData = [
     { id: 0, title: 'Tree planting', emoji: '🌳' },
-    { id: 1, title: 'Tree planting', emoji: '🌳' },
-    { id: 2, title: 'Tree planting', emoji: '🌳' }
+    { id: 1, title: 'Healthy eating', emoji: '🌳' },
+    { id: 2, title: 'Recycling', emoji: '🌳' }
   ]
 
   const addNewHabit = () => {
@@ -22,6 +23,7 @@ function Habits () {
         <View style={styles.center}>
           <Text></Text>
           <Text style={styles.title}>Habits</Text>
+          {/* TODO: change fixed dimensions to those dependent on device's screen's dimensions (32px would be too small for a tablet) */}
           <Image source={require('../../assets/logo.png')} style={{ height: '32px', width: '32px' }} />
         </View>
 
@@ -29,7 +31,7 @@ function Habits () {
           data={mockData}
           renderItem={({ item }) => (
             <View style={styles.listItem}>
-              <Text>{item.emoji} {item.title}</Text>
+              <Habit habitName={item.title}>{item.emoji} {item.title}</Habit>
             </View>
           )}
         />
@@ -37,6 +39,7 @@ function Habits () {
 
       <View style={styles.footer}>
         <TouchableOpacity onPress={addNewHabit} style={styles.plusButton}>
+          {/* TODO: center the plus as it's not exactly placed in the center */}
           <Text style={styles.plusButtonText}>+</Text>
         </TouchableOpacity>
       </View>
