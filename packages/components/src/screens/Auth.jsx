@@ -1,12 +1,25 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image, Button } from 'react-native'
+import Logo from '../../assets/logo.png'
 
 function Auth () {
+  function login () {
+    alert('Login with Twitter OAuth...')
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.welcome}>
-        Auth screen
+      <Image source={Logo} style={{ height: '256px', width: '256px' }} />
+
+      <Text style={styles.title}>
+        Build thoughtful habits
       </Text>
+      
+      <Button
+        onPress={() => login()}
+        title="Continue with Twitter"
+        color="#00ACEE"
+      />
     </View>
   )
 }
@@ -16,12 +29,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#000000'
   },
-  welcome: {
-    fontSize: 20,
+  title: {
+    fontSize: 25,
     textAlign: 'center',
-    margin: 10,
+    marginBottom: 35,
+    color: '#FFFFFF'
   }
 })
 
