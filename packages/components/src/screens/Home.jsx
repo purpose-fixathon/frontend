@@ -8,8 +8,8 @@ function Habits () {
 
   const mockData = [
     { id: 0, title: 'Tree planting', emoji: '🌳' },
-    { id: 1, title: 'Healthy eating', emoji: '🌳' },
-    { id: 2, title: 'Recycling', emoji: '🌳' }
+    { id: 1, title: 'Using the bike', emoji: '🚲' },
+    { id: 2, title: 'Buying local', emoji: '🍅' }
   ]
 
   const addNewHabit = () => {
@@ -21,7 +21,7 @@ function Habits () {
       <ScrollView>
         <View style={styles.center}>
           <Image source={require('../../assets/logo.png')} style={{ height: '32px', width: '32px' }} />
-          <Text style={styles.title}>Habits</Text>
+          <Text style={styles.title}>Home</Text>
           <Text></Text>
           {/* TODO: change fixed dimensions to those dependent on device's screen's dimensions (32px would be too small for a tablet) */}
         </View>
@@ -29,7 +29,7 @@ function Habits () {
         <FlatList
           data={mockData}
           renderItem={({ item }) => (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => addNewHabit()} key={item.id}>
               <View style={styles.listItem}>
                 <Text>{item.emoji} {item.title}</Text>
                 <Image source={require('../../assets/more.png')} style={{ height: '6px', width: '22px' }} />
@@ -65,13 +65,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 16,
+    paddingTop: 16,
+    paddingBottom: 16,
+    paddingLeft: 20,
+    paddingRight: 20,
     borderColor: '#000000',
     borderBottomWidth: 1
   },
   plusButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
     width: 50,
     height: 50,
     backgroundColor: '#000',
@@ -81,6 +82,9 @@ const styles = StyleSheet.create({
     right: 25,
   },
   plusButtonText: {
+    flex: 1,
+    textAlign: 'center',
+    textAlignVertical: 'center',
     color: '#fff',
     fontSize: 30,
     fontWeight: 'bold',

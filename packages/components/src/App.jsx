@@ -1,12 +1,12 @@
 import React from 'react'
 
 import AuthScreen from './screens/Auth'
-import HabitsScreen from './screens/Habits'
+import HomeScreen from './screens/Home'
 
 function App () {
   const user = true
 
-  if (user) return <HabitsScreen />
+  if (user) return <HomeScreen />
   return <AuthScreen />
 }
 
