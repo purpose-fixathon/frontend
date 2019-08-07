@@ -1,25 +1,32 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, Button } from 'react-native'
-import Logo from '../../assets/logo.png'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 function Auth () {
   function login () {
-    alert('Login with Twitter OAuth...')
+    console.log('Login with Twitter OAuth...')
   }
 
   return (
     <View style={styles.container}>
-      <Image source={Logo} style={{ height: '256px', width: '256px' }} />
+      <Image
+        source={require('../../assets/logo.png')}
+        style={{ height: '256px', width: '256px', marginBottom: '20px' }}
+      />
 
       <Text style={styles.title}>
         Build thoughtful habits
       </Text>
       
-      <Button
+      <TouchableOpacity
+        style={styles.twitterBtn}
         onPress={() => login()}
-        title="Continue with Twitter"
-        color="#00ACEE"
-      />
+      >
+        <Text style={styles.twitterBtnText}>Continue with Twitter</Text>
+        <Image
+          source={require('../../assets/twitter.png')}
+          style={{ height: '20px', width: '20px' }}
+        />
+      </TouchableOpacity>
     </View>
   )
 }
@@ -36,6 +43,21 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 35,
     color: '#FFFFFF'
+  },
+  twitterBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#00ACEE',
+    height: 50,
+    paddingLeft: 22,
+    paddingRight: 22,
+    borderRadius: 20
+  },
+  twitterBtnText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginRight: 12
   }
 })
 
