@@ -3,5 +3,6 @@ export function getColors({isDark}) {
       azure: '#00ACEE',
       lightGray: '#EEEEEE',
       gray: '#CCD6DD',
+      twitterBlue: '#00ACEE',
     }
   }

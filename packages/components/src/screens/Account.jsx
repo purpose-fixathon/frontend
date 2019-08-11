@@ -9,6 +9,10 @@ function Account () {
         console.log('back');
     }
 
+    const logout = () => {
+        console.log('logout');
+    }
+
   return (
     <View>
       <ScrollView>
@@ -68,7 +72,14 @@ function Account () {
                 </View>
             </View>
         </View>
-        
+
+        <View style={[{flex: 1, margin: 25}, shared.paddingSides]}>
+            <TouchableOpacity onPress={() => logout()}>
+                <View style={shared.button}>
+                    <Text style={{color: '#ff0000'}}>Log out</Text>
+                </View>
+            </TouchableOpacity>
+        </View>
       </ScrollView>
     </View>
   )

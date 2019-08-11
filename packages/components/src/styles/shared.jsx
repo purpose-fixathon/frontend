@@ -71,6 +71,13 @@ const shared = StyleSheet.create({
     paddingSides: {
         paddingLeft: 25,
         paddingRight: 25,
+    },
+    button: {
+        backgroundColor: getColors(false).lightGray,
+        borderRadius: 22.5,
+        height: 45,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })
 
