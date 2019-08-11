@@ -1,5 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, FlatList, Button, TouchableOpacity, Icon, ScrollView } from 'react-native'
+import header from '../styles/sections'
+import shared from '../styles/shared';
 
 function Habits () {
 
@@ -19,24 +21,34 @@ function Habits () {
   return (
     <View>
       <ScrollView>
-        <View style={styles.center}>
-          <Image source={require('../../assets/logo.png')} style={{ height: '32px', width: '32px' }} />
-          <Text style={styles.title}>Home</Text>
-          <Text></Text>
+        <View style={shared.navBar}>
+          <View style={{flex: 1}}>
+            <Image source={require('../../assets/logo.png')} style={{ height: '32px', width: '32px' }} />
+          </View>
+          <View style={shared.navItem}><Text style={header.title}>Home</Text></View>
+          <View style={shared.navItem}></View>
           {/* TODO: change fixed dimensions to those dependent on device's screen's dimensions (32px would be too small for a tablet) */}
         </View>
-
-        <FlatList
-          data={mockData}
-          renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => addNewHabit()} key={item.id}>
-              <View style={styles.listItem}>
-                <Text>{item.emoji} {item.title}</Text>
-                <Image source={require('../../assets/more.png')} style={{ height: '6px', width: '22px' }} />
-              </View>
-            </TouchableOpacity>
-          )}
-        />
+        <View style={shared.paddingSides}>
+          <FlatList
+            data={mockData}
+            renderItem={({ item }) => (
+              <TouchableOpacity onPress={() => addNewHabit()} key={item.id}>
+                <View style={[shared.navBar, shared.borderBottom]}>
+                  <View style={[shared.navItem, shared.navLeft]}>
+                    <Text style={shared.navLeft}>{item.emoji} {item.title}</Text>
+                  </View>
+                  <View style={[shared.navItem, shared.navRight]}>
+                    {/* TODO: center the three dots vertically */}
+                    {/* <View style={shared.navRight}> */}
+                      <Image source={require('../../assets/more.png')} style={{ height: '6px', width: '22px' }} />
+                    {/* </View> */}
+                  </View>
+                </View>
+              </TouchableOpacity>
+            )}
+          ></FlatList>
+        </View>
       </ScrollView>
 
       <View style={styles.footer}>
@@ -50,17 +62,6 @@ function Habits () {
 }
 
 const styles = StyleSheet.create({
-  center: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 22
-  },
-  title: {
-    fontSize: '18px',
-    fontWeight: 'bold'
-  },
   listItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -69,8 +70,6 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     paddingLeft: 20,
     paddingRight: 20,
-    borderColor: '#000000',
-    borderBottomWidth: 1
   },
   plusButton: {
     width: 50,
