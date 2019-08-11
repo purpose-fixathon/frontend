@@ -1,8 +1,5 @@
 {
   "name": "components",
   "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "@types/react": "^16.9.1"
-  }
+  "private": true
 }
