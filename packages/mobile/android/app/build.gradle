@@ -103,7 +103,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.purpose"
+        applicationId "com.myprojectname"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
